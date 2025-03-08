@@ -2,14 +2,12 @@
 
 Study of the Sinclair ZX-81 ROMS disassembly.
 
-There are a lot of resources in the internet with scattered information about the internal workings of the
-Sinclair ZX-81 operating system that came in a 8K ROM.
+There are a lot of resources in the internet with scattered information about the internal workings of the Sinclair ZX-81 operating system that came in a 8K ROM.
 
 This project builds on these resources by adding information and keeping this open for comments and discussion.
 
-As far as I know, the Sinclair ROM copyright is held by Amstrad, who has allowed non-commercial use of its contents. 
-This project is setup on this principle. If I'm wrong, and this project infringes any copyright rights, please
-let me know.
+As far as I know, the Sinclair ROM copyright is held by John Grant of Nine Tiles, who has allowed non-commercial use of its contents. 
+This project is setup on this principle. If I'm wrong, and this project infringes any copyright rights, please let me know.
 
 The assembly source files are in the syntax used by the Z88DK Z80ASM assembler [https://github.com/z88dk/z88dk](https://github.com/z88dk/z88dk "The development kit for over fifty z80 machines - c compiler, assembler, linker, libraries").
 
@@ -47,8 +45,7 @@ Source: [https://web.archive.org/web/20150501015418/http://www.wearmouth.demon.c
 
 ROM disassembly: [https://www.dropbox.com/s/hrnha9ouqt8qbs0/sg81.html?dl=0](https://www.dropbox.com/s/hrnha9ouqt8qbs0/ts1500.html?dl=0 "Timex Sinclair 1500 ROM")
 
-This is the ROM delivered with the Timex Sinclair 1500 computer, which was a ZX-81 with internal 16k of 
-RAM and rubber keys as the ZX-Spectrum.
+This is the ROM delivered with the Timex Sinclair 1500 computer, which was a ZX-81 with internal 16k of RAM and rubber keys as the ZX-Spectrum.
 
 The ROM is based on the improved ZX-81 version 2 ROM, with the following changes:
 

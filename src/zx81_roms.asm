@@ -877,13 +877,16 @@ ERROR_3:
 ;   function and its interaction with the display routines.  When counting
 ;   TV lines, the NMI makes no use of the main registers.
 ;   The circuitry for the NMI generator is contained within the SCL (Sinclair
-;   Computer Logic) chip.
+;   Computer Logic) ULA chip.
 ;   ( It takes 32 clock cycles while incrementing towards zero ).
 
 NMI:
         ex      af, af'         ; (4) switch in the NMI's copy of the
                                 ;     accumulator.
-        inc     a               ; (4) increment.
+        inc     a               ; (4) the increment of a (set in the DISPLAY-3)
+                                ;     will reach 0 when the number of blank
+                                ;     lines (for the top or the bottom border)
+                                ;     have been all drawn
         jp      m, NMI_RET      ; (10/10) jump, if minus, to NMI-RET as this is
                                 ;     part of a test to see if the NMI
                                 ;     generation is working or an intermediate
@@ -931,8 +934,8 @@ NMI_CONT:
 ;   Then the time taken by the NMI for zero-to-one path =  39 cycles
 ;   The HALT above                                      =  01 cycles.
 ;   The two instructions below                          =  19 cycles.
-;   The code at L0281 up to and including the CALL      =  43 cycles.
-;   The Called routine at L02B5                         =  24 cycles.
+;   The code at L0281 R-IX-1 up to & including the CALL =  43 cycles.
+;   The Called routine at L02B5 DISPLAY_5               =  24 cycles.
 ;   --------------------------------------                ---
 ;   Total Z80 instructions                              = 143 cycles.
 ;
@@ -952,7 +955,9 @@ NMI_CONT:
 ;
         out     ($FD), a        ; (11) Stop the NMI generator.
 
-        jp      (ix)            ; (8) forward to L0281 (after top) or L028F
+        jp      (ix)            ; (8) forward to
+                                ; L0281 R-IX-1 (after top)
+                                ; or L028F R-IX-2
 
 
 #include "zx81_key_tables.asm"
