@@ -880,7 +880,7 @@ ERROR_3:
 ;   Computer Logic) ULA chip.
 ;   ( It takes 32 clock cycles while incrementing towards zero ).
 
-NMI:
+NMI: ;;L0066
         ex      af, af'         ; (4) switch in the NMI's copy of the
                                 ;     accumulator.
         inc     a               ; (4) the increment of a (set in the DISPLAY-3)
@@ -1298,6 +1298,7 @@ EACH_LINE:
         ld      (MARGIN), a     ; (13) update system variable MARGIN
 
         ret                     ; (10) return
+                                ; (T_VSYNC=T19+T651+T65=T735)
 
 ; ------------------------------
 ; THE 'SET FAST MODE' SUBROUTINE
